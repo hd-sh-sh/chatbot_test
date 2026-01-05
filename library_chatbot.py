@@ -108,14 +108,14 @@ def initialize_chain(selected_model: str, pdf_path: str):
 # -------------------------------------------------------------------
 # ✅ Streamlit UI
 # -------------------------------------------------------------------
-st.set_page_config(page_title="국립부경대 도서관 규정 Q&A", page_icon="📚")
-st.header("국립부경대 도서관 규정 Q&A 챗봇 💬📚")
+st.set_page_config(page_title="속초 바다 관광  Q&A", page_icon="🏄")
+st.header("속초 바다 관광 안내  Q&A 챗봇 💬🏄")
 
 # 모델 선택
 option = st.selectbox("Select GPT Model", ("gpt-4o-mini", "gpt-3.5-turbo-0125"))
 
 # PDF 선택: (1) 레포에 있는 기본 PDF 경로, (2) 업로드
-DEFAULT_PDF = "[챗봇프로그램및실습] 부경대학교 규정집.pdf"
+DEFAULT_PDF = "속초 바다 관광 안내.pdf"
 
 uploaded = st.file_uploader("PDF를 업로드하거나, 기본 PDF로 실행하세요.", type=["pdf"])
 pdf_path = None
@@ -165,3 +165,4 @@ if prompt_message := st.chat_input("질문을 입력하세요"):
                 for doc in response.get("context", []):
                     src = doc.metadata.get("source", "source")
                     st.markdown(src, help=doc.page_content)
+
